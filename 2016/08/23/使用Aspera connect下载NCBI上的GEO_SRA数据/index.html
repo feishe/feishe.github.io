@@ -9,10 +9,10 @@
     
     <meta name="author" content="zxm">
     
-    <meta name="description" content="#使用Aspera connect下载NCBI上的GEO/SRA数据
+    <meta name="description" content="#使用Aspera connect下载NCBI上的GEO/SRA数据#
 
 由于平时在GEO上下载数据速度太慢，所以使用Aspera connect进行下载，可以达到平均速度40M/s的速度！虽然用的是100兆网，但是平时迅雷白金会员都没出现这个速度！   
-##1.安装首先，到aspera网站下载你的">
+##1.安装##首先，到aspera网站下">
     
     
     
@@ -92,10 +92,10 @@
 		
 		</div>
 		
-		<p>#使用Aspera connect下载NCBI上的GEO/SRA数据</p>
+		<p>#使用Aspera connect下载NCBI上的GEO/SRA数据#</p>
 <hr>
 <p>由于平时在GEO上下载数据速度太慢，所以使用Aspera connect进行下载，可以达到平均速度40M/s的速度！虽然用的是100兆网，但是平时迅雷白金会员都没出现这个速度！   </p>
-<p>##1.安装<br>首先，到aspera网站下载你的操作系统对应的aspera connect。(本人为Ubuntu 16.04 LTS) 。解压缩后运行，不需要root或者sudo权限（本人尝试，root运行不了：  </p>
+<p>##1.安装##<br>首先，到aspera网站下载你的操作系统对应的aspera connect。(本人为Ubuntu 16.04 LTS) 。解压缩后运行，不需要root或者sudo权限（本人尝试，root运行不了：  </p>
 <p><code>$ sh aspera-connect-3.6.2.117442-linux-64.sh</code>  </p>
 <p>安装好以后，会在/home/的个人目录下新建一个叫.aspera的目录，我们只用到其中的两个文件:   </p>
 <p>~/.aspera/connect/etc/asperaweb_id_dsa.openssh和~/.aspera/可以将密钥备份到/home/的个人目录下方便使用:   </p>
@@ -118,12 +118,12 @@ Usage: ascp [OPTION] SRC... DEST
 Display full usage: -h,--help
 </pre>
 
-<p>##2.下载数据<br>下载代码如下：<br><code>$ ./ascp -QTr -l 100M -i ~/asperaweb_id_dsa.openssh anonftp@ftp-private.ncbi.nlm.nih.gov:/sra/sra-instant/reads/ByStudy/sra/SRP/SRP066/SRP066824 .</code>   </p>
+<p>##2.下载数据##<br>下载代码如下：<br><code>$ ./ascp -QTr -l 100M -i ~/asperaweb_id_dsa.openssh anonftp@ftp-private.ncbi.nlm.nih.gov:/sra/sra-instant/reads/ByStudy/sra/SRP/SRP066/SRP066824 .</code>   </p>
 <p>CentOS系统会报错如下，原因未知，换成Ubuntu后就没有了：<br><code>Session Stop  (Error: Client unable to connect to server (check UDP port and firewall))</code></p>
 <p>如果提示：<br><code>Key passphrase:</code><br>则可能是由于密钥文件asperaweb_id_dsa.openssh写成了asperaweb_id_dsa.putty。   </p>
 <p>有博客上这样写：<br><code>./ascp ~/asperaweb_id_dsa.openssh anonftp@ftp-private.ncbi.nlm.nih.gov:/sra/sra-instant/reads/ByStudy/sra/SRP/SRP066/SRP066824/SRR2967009 .</code><br>但是我尝试了会报错：<br><code>ascp: no remote host specified, exiting.</code>   </p>
-<p>##3.使用<br>例如我的文件在：<br><code>ftp://ftp-trace.ncbi.nlm.nih.gov/sra/sra-instant/reads/ByStudy/sra/SRP/SRP066/SRP066824</code><br>那就将：<br><code>ftp://ftp-trace.ncbi.nlm.nih.gov</code><br>后面的提取出来，在前面加上：<br><code>anonftp@ftp-private.ncbi.nlm.nih.gov:</code><br>即可。</p>
-<p>##补充：<br>如需从EBI下载，可以继续参考：<a href="http://www.plob.org/article/3013.html" title="Title" target="_blank" rel="external">使用Aspera从EBI或NCBI下载基因组数据</a></p>
+<p>##3.使用##<br>例如我的文件在：<br><code>ftp://ftp-trace.ncbi.nlm.nih.gov/sra/sra-instant/reads/ByStudy/sra/SRP/SRP066/SRP066824</code><br>那就将：<br><code>ftp://ftp-trace.ncbi.nlm.nih.gov</code><br>后面的提取出来，在前面加上：<br><code>anonftp@ftp-private.ncbi.nlm.nih.gov:</code><br>即可。</p>
+<p>##补充：##<br>如需从EBI下载，可以继续参考：<a href="http://www.plob.org/article/3013.html" title="Title" target="_blank" rel="external">使用Aspera从EBI或NCBI下载基因组数据</a></p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -142,6 +142,14 @@ Display full usage: -h,--help
 	
 <nav class="article-nav clearfix">
  
+ <div class="prev" >
+ <a href="/2016/08/23/2014-07-15-qualified-programmer-should-read-what-books/" title="一个合格的程序员应该读过哪些书">
+  <strong>PREVIOUS:</strong><br/>
+  <span>
+  一个合格的程序员应该读过哪些书</span>
+</a>
+</div>
+
 
 <div class="next">
 <a href="/2016/08/05/hello/"  title="hello">
@@ -167,8 +175,32 @@ Display full usage: -h,--help
 <aside class="clearfix">
 
   
+<div class="categorieslist">
+	<p class="asidetitle">分类</p>
+		<ul>
+		
+			<li><a href="/categories/other/" title="other">other<sup>1</sup></a></li>
+		
+			<li><a href="/categories/other/programming/" title="programming">programming<sup>1</sup></a></li>
+		
+			<li><a href="/categories/other/programming/reprints/" title="reprints">reprints<sup>1</sup></a></li>
+		
+		</ul>
+</div>
+
 
   
+<div class="tagslist">
+	<p class="asidetitle">标签</p>
+		<ul class="clearfix">
+		
+			<li><a href="/tags/书籍/" title="书籍">书籍<sup>1</sup></a></li>
+		
+			<li><a href="/tags/程序/" title="程序">程序<sup>1</sup></a></li>
+		
+		</ul>
+</div>
+
 
 </aside>
 </div>
