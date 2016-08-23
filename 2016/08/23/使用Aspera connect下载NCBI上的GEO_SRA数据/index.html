@@ -4,10 +4,15 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>hello | feishe</title>
+    <title>feishe</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1">
     
     <meta name="author" content="zxm">
+    
+    <meta name="description" content="#使用Aspera connect下载NCBI上的GEO/SRA数据
+
+由于平时在GEO上下载数据速度太慢，所以使用Aspera connect进行下载，可以达到平均速度40M/s的速度！虽然用的是100兆网，但是平时迅雷白金会员都没出现这个速度！   
+##1.安装首先，到aspera网站下载你的">
     
     
     
@@ -67,14 +72,14 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2016/08/05/hello/" title="hello" itemprop="url">hello</a>
+      <a href="/2016/08/23/使用Aspera connect下载NCBI上的GEO_SRA数据/" title="" itemprop="url"></a>
   </h1>
   <p class="article-author">By
     
       <a href="http://feishe.github.io" title="zxm">zxm</a>
     </p>
   <p class="article-time">
-    <time datetime="2016-08-05T04:05:22.000Z" itemprop="datePublished">2016-08-05</time>
+    <time datetime="2016-08-23T06:12:54.404Z" itemprop="datePublished">2016-08-23</time>
     
   </p>
 </header>
@@ -87,7 +92,39 @@
 		
 		</div>
 		
-		  
+		<p>#使用Aspera connect下载NCBI上的GEO/SRA数据</p>
+<hr>
+<p>由于平时在GEO上下载数据速度太慢，所以使用Aspera connect进行下载，可以达到平均速度40M/s的速度！虽然用的是100兆网，但是平时迅雷白金会员都没出现这个速度！   </p>
+<p>##1.安装<br>首先，到aspera网站下载你的操作系统对应的aspera connect。(本人为Ubuntu 16.04 LTS) 。解压缩后运行，不需要root或者sudo权限（本人尝试，root运行不了：  </p>
+<p><code>$ sh aspera-connect-3.6.2.117442-linux-64.sh</code>  </p>
+<p>安装好以后，会在/home/的个人目录下新建一个叫.aspera的目录，我们只用到其中的两个文件:   </p>
+<p>~/.aspera/connect/etc/asperaweb_id_dsa.openssh和~/.aspera/可以将密钥备份到/home/的个人目录下方便使用:   </p>
+<p><code>$ cp ~/.aspera/connect/etc/asperaweb_id_dsa.openssh ~/</code>   </p>
+<p>并且要把aspera-license复制到系统目录/usr/local/bin/中：   </p>
+<p><code>$ sudo cp ~/.aspera/connect/etc/aspera-license /usr/local/bin/</code>   </p>
+<p>为了方便调用，将ascp可执行文件的路径加入PATH变量中，以我的Ubuntu系统为例：   </p>
+<p><code>$ vim ~/.bashrc</code>   </p>
+<p>然后将如下代码添加到最后：   </p>
+<p><code>export PATH=&quot;$PATH:/home/用户名/.aspera/connect/bin</code>   </p>
+<p>保存退出后更新一下：   </p>
+<p><code>$ source ~/.bashrc</code>   </p>
+<p>此时可以看一下$PATH，尝试一下ascp这个命令了：   </p>
+<p><code>$ echo $PATH</code><br><code>$ ascp</code></p>
+<p>显示用法如下：</p>
+<pre>
+Usage: ascp [OPTION] SRC... DEST   
+          SRC to DEST, or multiple SRC to DEST dir   
+          SRC, DEST format: [[user@]host:]PATH   
+Display full usage: -h,--help
+</pre>
+
+<p>##2.下载数据<br>下载代码如下：<br><code>$ ./ascp -QTr -l 100M -i ~/asperaweb_id_dsa.openssh anonftp@ftp-private.ncbi.nlm.nih.gov:/sra/sra-instant/reads/ByStudy/sra/SRP/SRP066/SRP066824 .</code>   </p>
+<p>CentOS系统会报错如下，原因未知，换成Ubuntu后就没有了：<br><code>Session Stop  (Error: Client unable to connect to server (check UDP port and firewall))</code></p>
+<p>如果提示：<br><code>Key passphrase:</code><br>则可能是由于密钥文件asperaweb_id_dsa.openssh写成了asperaweb_id_dsa.putty。   </p>
+<p>有博客上这样写：<br><code>./ascp ~/asperaweb_id_dsa.openssh anonftp@ftp-private.ncbi.nlm.nih.gov:/sra/sra-instant/reads/ByStudy/sra/SRP/SRP066/SRP066824/SRR2967009 .</code><br>但是我尝试了会报错：<br><code>ascp: no remote host specified, exiting.</code>   </p>
+<p>##3.使用<br>例如我的文件在：<br><code>ftp://ftp-trace.ncbi.nlm.nih.gov/sra/sra-instant/reads/ByStudy/sra/SRP/SRP066/SRP066824</code><br>那就将：<br><code>ftp://ftp-trace.ncbi.nlm.nih.gov</code><br>后面的提取出来，在前面加上：<br><code>anonftp@ftp-private.ncbi.nlm.nih.gov:</code><br>即可。</p>
+<p>##补充：<br>如需从EBI下载，可以继续参考：<a href="http://www.plob.org/article/3013.html" title="Title" target="_blank" rel="external">使用Aspera从EBI或NCBI下载基因组数据</a></p>
+  
 	</div>
 		<footer class="article-footer clearfix">
 
@@ -96,7 +133,7 @@
 
 <div class="article-share" id="share">
 
-  <div data-url="http://feishe.github.io/2016/08/05/hello/" data-title="hello | feishe" data-tsina="null" class="share clearfix">
+  <div data-url="http://feishe.github.io/2016/08/23/使用Aspera connect下载NCBI上的GEO_SRA数据/" data-title="feishe" data-tsina="null" class="share clearfix">
   </div>
 
 </div>
@@ -105,14 +142,14 @@
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/2016/08/23/使用Aspera connect下载NCBI上的GEO_SRA数据/" title="">
-  <strong>PREVIOUS:</strong><br/>
-  <span>
-  (no title)</span>
+
+<div class="next">
+<a href="/2016/08/05/hello/"  title="hello">
+ <strong>NEXT:</strong><br/> 
+ <span>hello
+</span>
 </a>
 </div>
-
 
 </nav>
 
